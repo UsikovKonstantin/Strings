@@ -1,4 +1,7 @@
-﻿namespace ClassLibraryStrings
+﻿using System;
+using System.Collections.Generic;
+
+namespace ClassLibraryStrings
 {
     public static class Strings
     {
@@ -113,6 +116,31 @@
 
                 // Сохраняем i-й успешный префикс (его длину)
                 res[i] = k;
+            }
+            return res;
+        }
+        #endregion
+
+        #region Улучшенный алгоритм КМП
+        /// <summary>
+        /// Улучшенный алгоритм КМП
+        /// </summary>
+        /// <param name="source"> исходная строка </param>
+        /// <param name="pattern"> искомая строка </param>
+        /// <returns> список всех вхождений pattern в source </returns>
+        public static List<int> IndexOfKMP_Best(string source, string pattern)
+        {
+            List<int> res = new List<int>();
+            string expand = pattern + Convert.ToChar(0) + source;
+            int[] pref = PrefixFunction(expand);
+            int n = pref.Length;
+            int m = pattern.Length;
+            for (int i = 0; i < n; ++i)
+            {
+                if (pref[i] == m)
+                {
+                    res.Add(i - 2 * m);
+                }
             }
             return res;
         }
