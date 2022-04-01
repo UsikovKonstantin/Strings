@@ -47,5 +47,75 @@
             return j == n;
         }
         #endregion
+
+        #region Алгоритм КМП
+        /// <summary>
+        /// Алгоритм КМП для поиска вхождения подстроки
+        /// </summary>
+        /// <param name="source"> исходная строка </param>
+        /// <param name="pattern"> искомая строка </param>
+        /// <returns> индекс вхождения pattern в source </returns>
+        public static int IndexOf_KMP(string source, string pattern)
+        {
+            int n = source.Length;
+            int m = pattern.Length;
+            int[] pref = PrefixFunction(pattern);
+            int i = 0, k = 0;
+            while (i < n && k < m)
+            {
+                if (source[i] == pattern[k])
+                {
+                    ++i;
+                    ++k;
+                }
+                else if (k == 0)
+                {
+                    ++i;
+                }
+                else
+                {
+                    k = pref[k - 1];
+                }
+            }
+            if (k == m)
+            {
+                return i - k;
+            }
+            return -1;
+        }
+
+        /// <summary>
+        /// Вспомогательная функция метода КМП - подсчёт длины префиксов, совпадающих с суффиксами
+        /// </summary>
+        /// <param name="pattern"> искомая строка </param>
+        /// <returns> массив длин префиксов </returns>
+        public static int[] PrefixFunction(string pattern)
+        {
+            int n = pattern.Length;
+            int[] res = new int[n];
+            res[0] = 0;
+            int k = 0;
+            for (int i = 1; i < n; ++i)
+            {
+                // При несовпадении символов откат к предыдущему успешному префиксу
+                // Возможно до нуля, если символ i не является концом никакого префикса
+                while (k > 0 && pattern[k] != pattern[i])
+                {
+                    // Гарантируется k > res[k - 1], поэтому зацикливания не будет
+                    k = res[k - 1];
+                }
+
+                // При совпадении символов расширяем успешный префикс
+                if (pattern[k] == pattern[i])
+                {
+                    ++k;
+                }
+
+                // Сохраняем i-й успешный префикс (его длину)
+                res[i] = k;
+            }
+            return res;
+        }
+        #endregion
     }
 }
