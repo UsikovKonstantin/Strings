@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsStrings
+﻿using ClassLibraryStrings;
+
+namespace WindowsFormsStrings
 {
     public partial class Form : System.Windows.Forms.Form
     {
