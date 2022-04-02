@@ -31,29 +31,28 @@ namespace WindowsFormsStrings
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.search_source = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.search_position_result = new System.Windows.Forms.TextBox();
-            this.search_time_spent = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.search_index = new System.Windows.Forms.TextBox();
             this.search_substring = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.search_index = new System.Windows.Forms.TextBox();
-            this.search_method_naive = new System.Windows.Forms.CheckBox();
-            this.search_method_kmp = new System.Windows.Forms.CheckBox();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.search_method_best = new System.Windows.Forms.CheckBox();
+            this.search_method_kmp = new System.Windows.Forms.CheckBox();
+            this.search_method_naive = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.search_time_spent = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.search_position_result = new System.Windows.Forms.TextBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,6 +63,7 @@ namespace WindowsFormsStrings
             this.splitContainer2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -71,7 +71,7 @@ namespace WindowsFormsStrings
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -84,16 +84,6 @@ namespace WindowsFormsStrings
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Поиск подстроки";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1275, 631);
-            this.tabControl1.TabIndex = 0;
             // 
             // splitContainer1
             // 
@@ -143,6 +133,19 @@ namespace WindowsFormsStrings
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Исходная строка";
             // 
+            // search_source
+            // 
+            this.search_source.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.search_source.Location = new System.Drawing.Point(3, 16);
+            this.search_source.MaxLength = 262144;
+            this.search_source.Multiline = true;
+            this.search_source.Name = "search_source";
+            this.search_source.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.search_source.Size = new System.Drawing.Size(1255, 181);
+            this.search_source.TabIndex = 0;
+            this.search_source.Text = resources.GetString("search_source.Text");
+            this.search_source.TextChanged += new System.EventHandler(this.search_source_TextChanged);
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Gainsboro;
@@ -154,6 +157,56 @@ namespace WindowsFormsStrings
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Подстрока";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.7251F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.2749F));
+            this.tableLayoutPanel2.Controls.Add(this.search_index, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.search_substring, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.35593F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.64407F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1255, 177);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // search_index
+            // 
+            this.search_index.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.search_index.Location = new System.Drawing.Point(238, 146);
+            this.search_index.Name = "search_index";
+            this.search_index.Size = new System.Drawing.Size(1014, 20);
+            this.search_index.TabIndex = 4;
+            this.search_index.Text = "0";
+            this.search_index.TextChanged += new System.EventHandler(this.search_index_TextChanged);
+            // 
+            // search_substring
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.search_substring, 2);
+            this.search_substring.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.search_substring.Location = new System.Drawing.Point(3, 3);
+            this.search_substring.Multiline = true;
+            this.search_substring.Name = "search_substring";
+            this.search_substring.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.search_substring.Size = new System.Drawing.Size(1249, 137);
+            this.search_substring.TabIndex = 2;
+            this.search_substring.Text = "Donec tincidunt ac magna nec scelerisque. Morbi feugiat vehicula nibh sed digniss" +
+    "im.";
+            this.search_substring.TextChanged += new System.EventHandler(this.search_substring_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 143);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Откуда вести поиск";
             // 
             // splitContainer3
             // 
@@ -186,6 +239,41 @@ namespace WindowsFormsStrings
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Метод поиска";
             // 
+            // search_method_best
+            // 
+            this.search_method_best.AutoSize = true;
+            this.search_method_best.Location = new System.Drawing.Point(9, 81);
+            this.search_method_best.Name = "search_method_best";
+            this.search_method_best.Size = new System.Drawing.Size(185, 30);
+            this.search_method_best.TabIndex = 2;
+            this.search_method_best.Text = "Метод Кнутта-Морриса-Пратта \r\n(Все вхождения)";
+            this.search_method_best.UseVisualStyleBackColor = true;
+            this.search_method_best.CheckedChanged += new System.EventHandler(this.search_method_best_CheckedChanged);
+            // 
+            // search_method_kmp
+            // 
+            this.search_method_kmp.AutoSize = true;
+            this.search_method_kmp.Location = new System.Drawing.Point(9, 45);
+            this.search_method_kmp.Name = "search_method_kmp";
+            this.search_method_kmp.Size = new System.Drawing.Size(185, 30);
+            this.search_method_kmp.TabIndex = 1;
+            this.search_method_kmp.Text = "Метод Кнутта-Морриса-Пратта \r\n(Первое вхождение)";
+            this.search_method_kmp.UseVisualStyleBackColor = true;
+            this.search_method_kmp.CheckedChanged += new System.EventHandler(this.search_method_kmp_CheckedChanged);
+            // 
+            // search_method_naive
+            // 
+            this.search_method_naive.AutoSize = true;
+            this.search_method_naive.Checked = true;
+            this.search_method_naive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.search_method_naive.Location = new System.Drawing.Point(9, 21);
+            this.search_method_naive.Name = "search_method_naive";
+            this.search_method_naive.Size = new System.Drawing.Size(106, 17);
+            this.search_method_naive.TabIndex = 0;
+            this.search_method_naive.Text = "Наивный метод";
+            this.search_method_naive.UseVisualStyleBackColor = true;
+            this.search_method_naive.CheckedChanged += new System.EventHandler(this.search_method_naive_CheckedChanged);
+            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.Gainsboro;
@@ -197,18 +285,6 @@ namespace WindowsFormsStrings
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Результаты";
-            // 
-            // search_source
-            // 
-            this.search_source.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.search_source.Location = new System.Drawing.Point(3, 16);
-            this.search_source.MaxLength = 262144;
-            this.search_source.Multiline = true;
-            this.search_source.Name = "search_source";
-            this.search_source.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.search_source.Size = new System.Drawing.Size(1255, 181);
-            this.search_source.TabIndex = 0;
-            this.search_source.Text = resources.GetString("search_source.Text");
             // 
             // tableLayoutPanel1
             // 
@@ -228,14 +304,14 @@ namespace WindowsFormsStrings
             this.tableLayoutPanel1.Size = new System.Drawing.Size(993, 176);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // search_time_spent
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Позиция подстроки";
+            this.search_time_spent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.search_time_spent.Location = new System.Drawing.Point(217, 91);
+            this.search_time_spent.Name = "search_time_spent";
+            this.search_time_spent.ReadOnly = true;
+            this.search_time_spent.Size = new System.Drawing.Size(773, 20);
+            this.search_time_spent.TabIndex = 4;
             // 
             // label3
             // 
@@ -246,6 +322,15 @@ namespace WindowsFormsStrings
             this.label3.TabIndex = 2;
             this.label3.Text = "Время поиска";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Позиция подстроки";
+            // 
             // search_position_result
             // 
             this.search_position_result.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -255,94 +340,15 @@ namespace WindowsFormsStrings
             this.search_position_result.Size = new System.Drawing.Size(773, 20);
             this.search_position_result.TabIndex = 3;
             // 
-            // search_time_spent
+            // tabControl1
             // 
-            this.search_time_spent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.search_time_spent.Location = new System.Drawing.Point(217, 91);
-            this.search_time_spent.Name = "search_time_spent";
-            this.search_time_spent.ReadOnly = true;
-            this.search_time_spent.Size = new System.Drawing.Size(773, 20);
-            this.search_time_spent.TabIndex = 4;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.7251F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.2749F));
-            this.tableLayoutPanel2.Controls.Add(this.search_index, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.search_substring, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.35593F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.64407F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1255, 177);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // search_substring
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.search_substring, 2);
-            this.search_substring.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.search_substring.Location = new System.Drawing.Point(3, 3);
-            this.search_substring.Multiline = true;
-            this.search_substring.Name = "search_substring";
-            this.search_substring.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.search_substring.Size = new System.Drawing.Size(1249, 138);
-            this.search_substring.TabIndex = 2;
-            this.search_substring.Text = "Donec tincidunt ac magna nec scelerisque. Morbi feugiat vehicula nibh sed digniss" +
-    "im.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 144);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Откуда вести поиск";
-            // 
-            // search_index
-            // 
-            this.search_index.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.search_index.Location = new System.Drawing.Point(238, 147);
-            this.search_index.Name = "search_index";
-            this.search_index.Size = new System.Drawing.Size(1014, 20);
-            this.search_index.TabIndex = 4;
-            this.search_index.Text = "0";
-            // 
-            // search_method_naive
-            // 
-            this.search_method_naive.AutoSize = true;
-            this.search_method_naive.Checked = true;
-            this.search_method_naive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.search_method_naive.Location = new System.Drawing.Point(9, 21);
-            this.search_method_naive.Name = "search_method_naive";
-            this.search_method_naive.Size = new System.Drawing.Size(106, 17);
-            this.search_method_naive.TabIndex = 0;
-            this.search_method_naive.Text = "Наивный метод";
-            this.search_method_naive.UseVisualStyleBackColor = true;
-            // 
-            // search_method_kmp
-            // 
-            this.search_method_kmp.AutoSize = true;
-            this.search_method_kmp.Location = new System.Drawing.Point(9, 45);
-            this.search_method_kmp.Name = "search_method_kmp";
-            this.search_method_kmp.Size = new System.Drawing.Size(182, 17);
-            this.search_method_kmp.TabIndex = 1;
-            this.search_method_kmp.Text = "Метод Кнутта-Морриса-Пратта";
-            this.search_method_kmp.UseVisualStyleBackColor = true;
-            // 
-            // search_method_best
-            // 
-            this.search_method_best.AutoSize = true;
-            this.search_method_best.Location = new System.Drawing.Point(9, 69);
-            this.search_method_best.Name = "search_method_best";
-            this.search_method_best.Size = new System.Drawing.Size(255, 17);
-            this.search_method_best.TabIndex = 2;
-            this.search_method_best.Text = "Метод Кнутта-Морриса-Пратта (Улучшенный)";
-            this.search_method_best.UseVisualStyleBackColor = true;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1275, 631);
+            this.tabControl1.TabIndex = 0;
             // 
             // Form
             // 
@@ -353,7 +359,6 @@ namespace WindowsFormsStrings
             this.Name = "Form";
             this.Text = "String operations";
             this.tabPage1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -365,6 +370,8 @@ namespace WindowsFormsStrings
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
@@ -374,8 +381,7 @@ namespace WindowsFormsStrings
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
