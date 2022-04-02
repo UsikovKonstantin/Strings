@@ -137,7 +137,7 @@ namespace WindowsFormsStrings
             // 
             this.search_source.Dock = System.Windows.Forms.DockStyle.Fill;
             this.search_source.Location = new System.Drawing.Point(3, 16);
-            this.search_source.MaxLength = 262144;
+            this.search_source.MaxLength = 1073741824;
             this.search_source.Multiline = true;
             this.search_source.Name = "search_source";
             this.search_source.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -195,8 +195,7 @@ namespace WindowsFormsStrings
             this.search_substring.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.search_substring.Size = new System.Drawing.Size(1249, 137);
             this.search_substring.TabIndex = 2;
-            this.search_substring.Text = "Donec tincidunt ac magna nec scelerisque. Morbi feugiat vehicula nibh sed digniss" +
-    "im.";
+            this.search_substring.Text = "Князь Андрей, в числе других безнадежных раненых, был сдан на попечение жителей.";
             this.search_substring.TextChanged += new System.EventHandler(this.search_substring_TextChanged);
             // 
             // label2
