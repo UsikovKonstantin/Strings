@@ -17,7 +17,7 @@ namespace WindowsFormsStrings
             int temp;
             if (int.TryParse(search_index.Text,out temp) )
             {
-                search_index.Text = System.Math.Max(0,Math.Min(temp,search_source.TextLength-search_substring.TextLength)).ToString();
+                search_index.Text = Math.Max(0,Math.Min(temp,search_source.TextLength-search_substring.TextLength)).ToString();
             }
             else
             {
@@ -28,6 +28,10 @@ namespace WindowsFormsStrings
                         search_index.Text = search_index.Text.Remove(i, 1);
                     }
                 }
+            }
+            if (search_index.Text == "")
+            {
+                search_index.Text = "0";
             }
             Search_Change();
         }
