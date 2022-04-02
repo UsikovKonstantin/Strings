@@ -126,6 +126,12 @@ namespace WindowsFormsStrings
         }
         void Search_Calculate_Naive(object ct)
         {
+            if (search_substring.Text == "")
+            {
+                Invoke(new Action(() => search_position_result.Text = "Подстрока должна содержать по крайней мере один символ."));
+                Invoke(new Action(() => search_time_spent.Text = "Подстрока должна содержать по крайней мере один символ."));
+                return;
+            }
             CancellationToken Ca = (CancellationToken)ct;
             Stopwatch sw = new Stopwatch();
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
@@ -151,6 +157,12 @@ namespace WindowsFormsStrings
         }
         void Search_Calculate_Kmp(object ct)
         {
+            if (search_substring.Text == "")
+            {
+                Invoke(new Action(() => search_position_result.Text = "Подстрока должна содержать по крайней мере один символ."));
+                Invoke(new Action(() => search_time_spent.Text = "Подстрока должна содержать по крайней мере один символ."));
+                return;
+            }
             CancellationToken Ca = (CancellationToken)ct;
             Stopwatch sw = new Stopwatch();
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
@@ -176,6 +188,12 @@ namespace WindowsFormsStrings
         }
         void Search_Calculate_Best(object ct)
         {
+            if (search_substring.Text == "")
+            {
+                Invoke(new Action(() => search_position_result.Text = "Подстрока должна содержать по крайней мере один символ."));
+                Invoke(new Action(() => search_time_spent.Text = "Подстрока должна содержать по крайней мере один символ."));
+                return;
+            }
             CancellationToken Ca = (CancellationToken)ct;
             Stopwatch sw = new Stopwatch();
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
