@@ -50,13 +50,11 @@ namespace WindowsFormsStrings
         {
             if (search_method_naive.Checked)
             {
-                search_index.Enabled = true;
                 search_method_kmp.Checked = false;
                 search_method_best.Checked = false;
             }
             else if (!search_method_naive.Checked && !search_method_kmp.Checked && !search_method_best.Checked)
             {
-                search_index.Enabled = true;
                 search_method_naive.Checked = true;
             }
             Search_Change();
@@ -66,13 +64,11 @@ namespace WindowsFormsStrings
         {
             if (search_method_kmp.Checked)
             {
-                search_index.Enabled = false;
                 search_method_naive.Checked = false;
                 search_method_best.Checked = false;
             }
             else if (!search_method_naive.Checked && !search_method_kmp.Checked && !search_method_best.Checked)
             {
-                search_index.Enabled = false;
                 search_method_kmp.Checked = true;
             }
             Search_Change();
@@ -82,13 +78,11 @@ namespace WindowsFormsStrings
         {
             if (search_method_best.Checked)
             {
-                search_index.Enabled = false;
                 search_method_kmp.Checked = false;
                 search_method_naive.Checked = false;
             }
             else if (!search_method_naive.Checked && !search_method_kmp.Checked && !search_method_best.Checked)
             {
-                search_index.Enabled = false;
                 search_method_best.Checked = true;
             }
             Search_Change();
@@ -172,7 +166,7 @@ namespace WindowsFormsStrings
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
             sw.Start();
-            int pos = Strings.IndexOf_KMP(search_source.Text, search_substring.Text, 0);
+            int pos = Strings.IndexOf_KMP(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
@@ -203,7 +197,7 @@ namespace WindowsFormsStrings
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
             sw.Start();
-            List<int> pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text, 0);
+            List<int> pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
