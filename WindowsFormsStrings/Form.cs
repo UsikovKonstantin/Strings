@@ -172,7 +172,7 @@ namespace WindowsFormsStrings
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
             sw.Start();
-            int pos = Strings.IndexOf_KMP(search_source.Text, search_substring.Text);
+            int pos = Strings.IndexOf_KMP(search_source.Text, search_substring.Text, 0);
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
@@ -203,7 +203,7 @@ namespace WindowsFormsStrings
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
             sw.Start();
-            List<int> pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text);
+            List<int> pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text, 0);
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {

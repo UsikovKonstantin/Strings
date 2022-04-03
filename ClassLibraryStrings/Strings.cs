@@ -57,13 +57,14 @@ namespace ClassLibraryStrings
         /// </summary>
         /// <param name="source"> исходная строка </param>
         /// <param name="pattern"> искомая строка </param>
+        /// <param name="start"> индекс начала поиска </param>
         /// <returns> индекс вхождения pattern в source </returns>
-        public static int IndexOf_KMP(string source, string pattern)
+        public static int IndexOf_KMP(string source, string pattern, int start)
         {
             int n = source.Length;
             int m = pattern.Length;
             int[] pref = PrefixFunction(pattern);
-            int i = 0, k = 0;
+            int i = start, k = 0;
             while (i < n && k < m)
             {
                 if (source[i] == pattern[k])
@@ -127,11 +128,12 @@ namespace ClassLibraryStrings
         /// </summary>
         /// <param name="source"> исходная строка </param>
         /// <param name="pattern"> искомая строка </param>
+        /// <param name="start"> индекс начала поиска </param>
         /// <returns> список всех вхождений pattern в source </returns>
-        public static List<int> IndexOfKMP_Best(string source, string pattern)
+        public static List<int> IndexOfKMP_Best(string source, string pattern, int start)
         {
             List<int> res = new List<int>();
-            string expand = pattern + Convert.ToChar(0) + source;
+            string expand = pattern + Convert.ToChar(0) + source.Substring(start);
             int[] pref = PrefixFunction(expand);
             int n = pref.Length;
             int m = pattern.Length;
@@ -139,7 +141,7 @@ namespace ClassLibraryStrings
             {
                 if (pref[i] == m)
                 {
-                    res.Add(i - 2 * m);
+                    res.Add(i - 2 * m + start);
                 }
             }
             return res;
