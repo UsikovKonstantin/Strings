@@ -42,6 +42,7 @@ namespace WindowsFormsStrings
             this.label2 = new System.Windows.Forms.Label();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.search_register = new System.Windows.Forms.CheckBox();
             this.search_method_best = new System.Windows.Forms.CheckBox();
             this.search_method_kmp = new System.Windows.Forms.CheckBox();
             this.search_method_naive = new System.Windows.Forms.CheckBox();
@@ -52,7 +53,6 @@ namespace WindowsFormsStrings
             this.label1 = new System.Windows.Forms.Label();
             this.search_position_result = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.search_register = new System.Windows.Forms.CheckBox();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -179,9 +179,9 @@ namespace WindowsFormsStrings
             // search_index
             // 
             this.search_index.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.search_index.Location = new System.Drawing.Point(238, 146);
+            this.search_index.Location = new System.Drawing.Point(237, 146);
             this.search_index.Name = "search_index";
-            this.search_index.Size = new System.Drawing.Size(1014, 20);
+            this.search_index.Size = new System.Drawing.Size(1015, 20);
             this.search_index.TabIndex = 4;
             this.search_index.Text = "0";
             this.search_index.TextChanged += new System.EventHandler(this.search_index_TextChanged);
@@ -239,6 +239,17 @@ namespace WindowsFormsStrings
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Метод поиска";
+            // 
+            // search_register
+            // 
+            this.search_register.AutoSize = true;
+            this.search_register.Location = new System.Drawing.Point(9, 118);
+            this.search_register.Name = "search_register";
+            this.search_register.Size = new System.Drawing.Size(124, 17);
+            this.search_register.TabIndex = 3;
+            this.search_register.Text = "Учитывать регистр";
+            this.search_register.UseVisualStyleBackColor = true;
+            this.search_register.CheckedChanged += new System.EventHandler(this.search_register_CheckedChanged);
             // 
             // search_method_best
             // 
@@ -350,17 +361,6 @@ namespace WindowsFormsStrings
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1275, 631);
             this.tabControl1.TabIndex = 0;
-            // 
-            // search_register
-            // 
-            this.search_register.AutoSize = true;
-            this.search_register.Location = new System.Drawing.Point(9, 118);
-            this.search_register.Name = "search_register";
-            this.search_register.Size = new System.Drawing.Size(124, 17);
-            this.search_register.TabIndex = 3;
-            this.search_register.Text = "Учитывать регистр";
-            this.search_register.UseVisualStyleBackColor = true;
-            this.search_register.CheckedChanged += new System.EventHandler(this.search_register_CheckedChanged);
             // 
             // Form
             // 

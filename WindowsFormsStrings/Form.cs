@@ -222,7 +222,6 @@ namespace WindowsFormsStrings
             {
                 pos = Strings.IndexOfKMP_Best(search_source.Text.ToUpper(), search_substring.Text.ToUpper(), int.Parse(search_index.Text));
             }
-            pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
