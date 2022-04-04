@@ -134,8 +134,16 @@ namespace WindowsFormsStrings
             Stopwatch sw = new Stopwatch();
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
+            int pos;
             sw.Start();
-            int pos = Strings.IndexOfAny_Primitive(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
+            if (search_register.Checked)
+            {
+                pos = Strings.IndexOfAny_Primitive(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
+            }
+            else
+            {
+                pos = Strings.IndexOfAny_Primitive(search_source.Text.ToUpper(), search_substring.Text.ToUpper(), int.Parse(search_index.Text));
+            }
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
@@ -165,8 +173,16 @@ namespace WindowsFormsStrings
             Stopwatch sw = new Stopwatch();
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
+            int pos;
             sw.Start();
-            int pos = Strings.IndexOf_KMP(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
+            if (search_register.Checked)
+            {
+                pos = Strings.IndexOf_KMP(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
+            }
+            else
+            {
+                pos = Strings.IndexOf_KMP(search_source.Text.ToUpper(), search_substring.Text.ToUpper(), int.Parse(search_index.Text));
+            }
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
@@ -196,8 +212,17 @@ namespace WindowsFormsStrings
             Stopwatch sw = new Stopwatch();
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
+            List<int> pos;
             sw.Start();
-            List<int> pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
+            if (search_register.Checked)
+            {
+                pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
+            }
+            else
+            {
+                pos = Strings.IndexOfKMP_Best(search_source.Text.ToUpper(), search_substring.Text.ToUpper(), int.Parse(search_index.Text));
+            }
+            pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
@@ -273,6 +298,11 @@ namespace WindowsFormsStrings
                 Invoke(new Action(() => search_position_result.Text = output));
                 Invoke(new Action(() => search_time_spent.Text = $"{sw.ElapsedMilliseconds} мс."));
             }
+        }
+
+        private void search_register_CheckedChanged(object sender, EventArgs e)
+        {
+            Search_Change();
         }
     }
 }

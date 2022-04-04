@@ -52,6 +52,7 @@ namespace WindowsFormsStrings
             this.label1 = new System.Windows.Forms.Label();
             this.search_position_result = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.search_register = new System.Windows.Forms.CheckBox();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -227,6 +228,7 @@ namespace WindowsFormsStrings
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox3.Controls.Add(this.search_register);
             this.groupBox3.Controls.Add(this.search_method_best);
             this.groupBox3.Controls.Add(this.search_method_kmp);
             this.groupBox3.Controls.Add(this.search_method_naive);
@@ -349,6 +351,17 @@ namespace WindowsFormsStrings
             this.tabControl1.Size = new System.Drawing.Size(1275, 631);
             this.tabControl1.TabIndex = 0;
             // 
+            // search_register
+            // 
+            this.search_register.AutoSize = true;
+            this.search_register.Location = new System.Drawing.Point(9, 118);
+            this.search_register.Name = "search_register";
+            this.search_register.Size = new System.Drawing.Size(124, 17);
+            this.search_register.TabIndex = 3;
+            this.search_register.Text = "Учитывать регистр";
+            this.search_register.UseVisualStyleBackColor = true;
+            this.search_register.CheckedChanged += new System.EventHandler(this.search_register_CheckedChanged);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,6 +422,7 @@ namespace WindowsFormsStrings
         private System.Windows.Forms.CheckBox search_method_best;
         private System.Windows.Forms.CheckBox search_method_kmp;
         private System.Windows.Forms.CheckBox search_method_naive;
+        private System.Windows.Forms.CheckBox search_register;
     }
 }
 
