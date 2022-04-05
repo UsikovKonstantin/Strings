@@ -157,6 +157,7 @@ namespace WindowsFormsStrings
             {
                 Invoke(new Action(() => search_position_result.Text = "Поиск Отменен"));
                 Invoke(new Action(() => search_time_spent.Text = "Поиск Отменен"));
+                return;
             }
             if (pos == -1)
             {
@@ -199,6 +200,7 @@ namespace WindowsFormsStrings
             {
                 Invoke(new Action(() => search_position_result.Text = "Поиск Отменен"));
                 Invoke(new Action(() => search_time_spent.Text = "Поиск Отменен"));
+                return;
             }
             if (pos == -1)
             {
@@ -241,6 +243,7 @@ namespace WindowsFormsStrings
             {
                 Invoke(new Action(() => search_position_result.Text = "Поиск Отменен"));
                 Invoke(new Action(() => search_time_spent.Text = "Поиск Отменен"));
+                return;
             }
             string output;
             long str_len_estimate = 0;
