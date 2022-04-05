@@ -155,8 +155,6 @@ namespace WindowsFormsStrings
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
-                Invoke(new Action(() => search_position_result.Text = "Поиск Отменен"));
-                Invoke(new Action(() => search_time_spent.Text = "Поиск Отменен"));
                 return;
             }
             if (pos == -1)
@@ -198,8 +196,6 @@ namespace WindowsFormsStrings
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
-                Invoke(new Action(() => search_position_result.Text = "Поиск Отменен"));
-                Invoke(new Action(() => search_time_spent.Text = "Поиск Отменен"));
                 return;
             }
             if (pos == -1)
@@ -241,8 +237,6 @@ namespace WindowsFormsStrings
             sw.Stop();
             if (Ca.IsCancellationRequested)
             {
-                Invoke(new Action(() => search_position_result.Text = "Поиск Отменен"));
-                Invoke(new Action(() => search_time_spent.Text = "Поиск Отменен"));
                 return;
             }
             string output;
