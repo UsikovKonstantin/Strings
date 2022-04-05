@@ -1,8 +1,8 @@
 ﻿using ClassLibraryStrings;
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Diagnostics;
+using System.Threading;
 namespace WindowsFormsStrings
 {
     public partial class Form : System.Windows.Forms.Form
@@ -14,14 +14,19 @@ namespace WindowsFormsStrings
 
         private void search_index_TextChanged(object sender, System.EventArgs e)
         {
+            Search_Change();
+        }
+
+        private void Search_Enforce_Validity_Index()
+        {
             int temp;
-            if (int.TryParse(search_index.Text,out temp) )
+            if (int.TryParse(search_index.Text, out temp))
             {
-                search_index.Text = Math.Max(0,Math.Min(temp,search_source.TextLength-search_substring.TextLength)).ToString();
+                search_index.Text = Math.Max(0, Math.Min(temp, search_source.TextLength - search_substring.TextLength)).ToString();
             }
             else
             {
-                for (int i = search_index.TextLength-1; i >= 0; i--)
+                for (int i = search_index.TextLength - 1; i >= 0; i--)
                 {
                     if (search_index.Text[i] < '0' || search_index.Text[i] > '9')
                     {
@@ -33,7 +38,6 @@ namespace WindowsFormsStrings
             {
                 search_index.Text = "0";
             }
-            Search_Change();
         }
 
         private void search_substring_TextChanged(object sender, System.EventArgs e)
@@ -90,6 +94,7 @@ namespace WindowsFormsStrings
         List<(Thread thread, CancellationTokenSource cts)> threads = new List<(Thread thread, CancellationTokenSource cts)>();
         void Search_Change()
         {
+            Search_Enforce_Validity_Index();
             foreach (var item in threads)
             {
                 item.cts.Cancel();
@@ -120,7 +125,7 @@ namespace WindowsFormsStrings
                 threads.Add((th1, cts));
                 th1.Start(cts.Token);
             }
-            
+
         }
         void Search_Calculate_Naive(object ct)
         {
@@ -135,14 +140,16 @@ namespace WindowsFormsStrings
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
             int pos;
-            sw.Start();
             if (search_register.Checked)
             {
+                sw.Start();
                 pos = Strings.IndexOfAny_Primitive(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
             }
             else
             {
-                pos = Strings.IndexOfAny_Primitive(search_source.Text.ToUpper(), search_substring.Text.ToUpper(), int.Parse(search_index.Text));
+                string temp_source = search_source.Text.ToUpper(), temp_substring = search_substring.Text.ToUpper();
+                sw.Start();
+                pos = Strings.IndexOfAny_Primitive(temp_source, temp_substring, int.Parse(search_index.Text));
             }
             sw.Stop();
             if (Ca.IsCancellationRequested)
@@ -174,14 +181,16 @@ namespace WindowsFormsStrings
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
             int pos;
-            sw.Start();
             if (search_register.Checked)
             {
+                sw.Start();
                 pos = Strings.IndexOf_KMP(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
             }
             else
             {
-                pos = Strings.IndexOf_KMP(search_source.Text.ToUpper(), search_substring.Text.ToUpper(), int.Parse(search_index.Text));
+                string temp_source = search_source.Text.ToUpper(), temp_substring = search_substring.Text.ToUpper();
+                sw.Start();
+                pos = Strings.IndexOf_KMP(temp_source, temp_substring, int.Parse(search_index.Text));
             }
             sw.Stop();
             if (Ca.IsCancellationRequested)
@@ -213,14 +222,16 @@ namespace WindowsFormsStrings
             Invoke(new Action(() => search_position_result.Text = "Происходит Вычисление ..."));
             Invoke(new Action(() => search_time_spent.Text = "Происходит Вычисление ..."));
             List<int> pos;
-            sw.Start();
             if (search_register.Checked)
             {
+                sw.Start();
                 pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
             }
             else
             {
-                pos = Strings.IndexOfKMP_Best(search_source.Text.ToUpper(), search_substring.Text.ToUpper(), int.Parse(search_index.Text));
+                string temp_source = search_source.Text.ToUpper(), temp_substring = search_substring.Text.ToUpper();
+                sw.Start();
+                pos = Strings.IndexOfKMP_Best(temp_source, temp_substring, int.Parse(search_index.Text));
             }
             sw.Stop();
             if (Ca.IsCancellationRequested)

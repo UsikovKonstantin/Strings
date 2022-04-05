@@ -180,9 +180,9 @@ namespace WindowsFormsStrings
             // search_index
             // 
             this.search_index.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.search_index.Location = new System.Drawing.Point(237, 112);
+            this.search_index.Location = new System.Drawing.Point(238, 112);
             this.search_index.Name = "search_index";
-            this.search_index.Size = new System.Drawing.Size(1015, 26);
+            this.search_index.Size = new System.Drawing.Size(1014, 26);
             this.search_index.TabIndex = 4;
             this.search_index.Text = "0";
             this.search_index.TextChanged += new System.EventHandler(this.search_index_TextChanged);
