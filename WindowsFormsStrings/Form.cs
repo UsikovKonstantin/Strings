@@ -142,8 +142,9 @@ namespace WindowsFormsStrings
             int pos;
             if (search_register.Checked)
             {
+                string temp_source = search_source.Text, temp_substring = search_substring.Text;
                 sw.Start();
-                pos = Strings.IndexOfAny_Primitive(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
+                pos = Strings.IndexOfAny_Primitive(temp_source, temp_substring, int.Parse(search_index.Text));
             }
             else
             {
@@ -183,8 +184,9 @@ namespace WindowsFormsStrings
             int pos;
             if (search_register.Checked)
             {
+                string temp_source = search_source.Text, temp_substring = search_substring.Text;
                 sw.Start();
-                pos = Strings.IndexOf_KMP(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
+                pos = Strings.IndexOf_KMP(temp_source, temp_substring, int.Parse(search_index.Text));
             }
             else
             {
@@ -224,8 +226,9 @@ namespace WindowsFormsStrings
             List<int> pos;
             if (search_register.Checked)
             {
+                string temp_source = search_source.Text, temp_substring = search_substring.Text;
                 sw.Start();
-                pos = Strings.IndexOfKMP_Best(search_source.Text, search_substring.Text, int.Parse(search_index.Text));
+                pos = Strings.IndexOfKMP_Best(temp_source, temp_substring, int.Parse(search_index.Text));
             }
             else
             {
