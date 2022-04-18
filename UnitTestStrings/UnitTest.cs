@@ -51,8 +51,9 @@ namespace UnitTestStrings
             Assert.AreEqual(Strings.IndexOfKMP_Best(text, "можно", 0)[1], 60);
 
             string text2 = "Лениво дышит полдень мглистый, Лениво катится река - И в тверди пламенной и чистой. Лениво тают облака";
+            Assert.AreEqual(Strings.IndexOfKMP_Best(text2, "Лениво", 0)[0], 0);
             Assert.AreEqual(Strings.IndexOfKMP_Best(text2, "Лениво", 0)[1], 31);
-            Assert.AreEqual(Strings.IndexOfKMP_Best(text2, "Лениво", 0)[2], 84);
+            Assert.AreEqual(Strings.IndexOfKMP_Best(text2, "Лениво", 80)[0], 84);
             Assert.AreEqual(Strings.IndexOfKMP_Best(text2, "дышит", 0)[0], 7);
         }
 
